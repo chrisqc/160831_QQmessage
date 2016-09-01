@@ -27,13 +27,13 @@
     
     //2. icon
     CGFloat iconX = padding;
-    CGFloat iconY = timeY + padding;
+    CGFloat iconY = CGRectGetMaxY(_timeF) + padding;
     CGFloat iconW = 40;
     CGFloat iconH = 40;
     _iconF = CGRectMake(iconX, iconY, iconW, iconH);
     
     //3. text
-    CGFloat textX = iconX + 2* padding;
+    CGFloat textX = CGRectGetMaxX(_iconF) + padding;
     CGFloat textY = iconY;
     
     CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);

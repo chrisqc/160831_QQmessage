@@ -11,7 +11,7 @@
 #import "QcMessage.h"
 #import "QcMessageCell.h"
 
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) NSArray *messageArray;
 
@@ -54,6 +54,12 @@
     
     cell.messageFrame = self.messageArray[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    QcMessageFrame *mf = self.messageArray[indexPath.row];
+    
+    return mf.cellHeight;
 }
 
 @end
