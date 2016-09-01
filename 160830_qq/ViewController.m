@@ -28,6 +28,11 @@
         for (NSDictionary *dict in dictArray) {
             QcMessage *message = [QcMessage QcMessageWithDict:dict];
             
+            QcMessageFrame *lastMF = [array lastObject];
+            QcMessage *lastMsg = lastMF.message;
+            
+            message.hideTime = [message.time isEqualToString:lastMsg.time];
+            
             QcMessageFrame *messageframe = [[QcMessageFrame alloc] init];
             messageframe.message = message;
             [array addObject:messageframe];

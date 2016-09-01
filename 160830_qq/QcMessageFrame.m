@@ -19,11 +19,14 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     
     //1. time
-    CGFloat timeX = 0;
-    CGFloat timeY = 0;
-    CGFloat timeW = screenWidth;
-    CGFloat timeH = 40;
-    _timeF = CGRectMake(timeX, timeY, timeW, timeH);
+    if (_message.hideTime == NO) {
+        CGFloat timeX = 0;
+        CGFloat timeY = 0;
+        CGFloat timeW = screenWidth;;
+        CGFloat timeH = 40;
+        
+        _timeF = CGRectMake(timeX, timeY, timeW, timeH);
+    }
     
     //2. icon
     CGFloat iconX = padding;

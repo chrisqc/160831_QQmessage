@@ -14,6 +14,8 @@
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,assign) NSInteger type;
 
+@property (nonatomic,assign) BOOL hideTime;
+
 + (instancetype)QcMessageWithDict:(NSDictionary  *)dict;
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
