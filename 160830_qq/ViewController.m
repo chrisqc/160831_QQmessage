@@ -56,6 +56,7 @@
     return _messageArray;
 }
 
+//addMessage方法接受文本栏传入的信息，处理自己发言和自动回复的标记
 - (void)addMessage:(NSString *)text type:(NSInteger)type {
     //1 .数据类型
     QcMessage *msg = [[QcMessage alloc] init];
@@ -78,7 +79,7 @@
     mf.message = msg;
     [self.messageArray addObject:mf];
     
-    //3. 刷新表哥
+    //3. 刷新表格
     [self.tableView reloadData];
     
     //4. 自动滚动至最后一行
