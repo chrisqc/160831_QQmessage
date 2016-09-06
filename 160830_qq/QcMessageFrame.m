@@ -29,20 +29,34 @@
     }
     
     //2. icon
-    CGFloat iconX = padding;
+    CGFloat iconX;
     CGFloat iconY = CGRectGetMaxY(_timeF) + padding;
     CGFloat iconW = 40;
     CGFloat iconH = 40;
+    
+    if (message.type == QcMessageTypeOther) {
+        iconX = padding;
+    }else {
+        iconX = screenWidth - padding - iconW;
+    }
     _iconF = CGRectMake(iconX, iconY, iconW, iconH);
     
+    
     //3. text
-    CGFloat textX = CGRectGetMaxX(_iconF) + padding;
+    CGFloat textX ;
+    
     CGFloat textY = iconY;
     
     CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);
     CGSize textRealSize = [message.text sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize];
     
     CGSize textBtnSize = CGSizeMake(textRealSize.width + padding *2, textRealSize.height + padding*2);
+    
+    if (message.type == QcMessageTypeOther) {
+        textX = CGRectGetMaxX(_iconF) + padding;
+    }else {
+        textX = iconX - padding - textBtnSize.width;
+    }
     _textF = (CGRect){{textX,textY},textBtnSize};
     
     //4. cell

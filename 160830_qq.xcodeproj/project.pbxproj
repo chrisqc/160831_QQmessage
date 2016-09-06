@@ -20,6 +20,7 @@
 		834330601D785A05001B30DA /* QcMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8343305F1D785A05001B30DA /* QcMessageFrame.m */; };
 		834330631D786C9A001B30DA /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 834330621D786C9A001B30DA /* NSString+Extension.m */; };
 		834330661D787962001B30DA /* QcMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 834330651D787962001B30DA /* QcMessageCell.m */; };
+		83AD160D1D7EF4E1006C8BAE /* autoreply.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83AD160C1D7EF4E1006C8BAE /* autoreply.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		834330621D786C9A001B30DA /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		834330641D787962001B30DA /* QcMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QcMessageCell.h; sourceTree = "<group>"; };
 		834330651D787962001B30DA /* QcMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QcMessageCell.m; sourceTree = "<group>"; };
+		83AD160C1D7EF4E1006C8BAE /* autoreply.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = autoreply.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,18 +117,11 @@
 		8332BE231D75D003003D728B /* 160830_qq */ = {
 			isa = PBXGroup;
 			children = (
-				8332BE271D75D003003D728B /* AppDelegate.h */,
-				8332BE281D75D003003D728B /* AppDelegate.m */,
-				8332BE2A1D75D003003D728B /* ViewController.h */,
-				8332BE2B1D75D003003D728B /* ViewController.m */,
-				8343305B1D7858C0001B30DA /* QcMessage.h */,
-				8343305C1D7858C0001B30DA /* QcMessage.m */,
-				8343305E1D785A05001B30DA /* QcMessageFrame.h */,
-				8343305F1D785A05001B30DA /* QcMessageFrame.m */,
-				834330641D787962001B30DA /* QcMessageCell.h */,
-				834330651D787962001B30DA /* QcMessageCell.m */,
-				834330611D786C9A001B30DA /* NSString+Extension.h */,
-				834330621D786C9A001B30DA /* NSString+Extension.m */,
+				83AD16081D7E476A006C8BAE /* Other */,
+				83AD160B1D7E4796006C8BAE /* Controller */,
+				83AD160A1D7E478F006C8BAE /* Model */,
+				83AD16091D7E4781006C8BAE /* View */,
+				83AD16071D7E474C006C8BAE /* Category */,
 				8332BE241D75D003003D728B /* Supporting Files */,
 			);
 			path = 160830_qq;
@@ -141,6 +136,7 @@
 				8332BE251D75D003003D728B /* main.m */,
 				8332BE591D75D0DF003D728B /* Assets.xcassets */,
 				8332BE571D75D08A003D728B /* messages.plist */,
+				83AD160C1D7EF4E1006C8BAE /* autoreply.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,6 +157,53 @@
 				8332BE4B1D75D003003D728B /* Info.plist */,
 			);
 			path = 160830_qqUITests;
+			sourceTree = "<group>";
+		};
+		83AD16071D7E474C006C8BAE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				834330611D786C9A001B30DA /* NSString+Extension.h */,
+				834330621D786C9A001B30DA /* NSString+Extension.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		83AD16081D7E476A006C8BAE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8332BE271D75D003003D728B /* AppDelegate.h */,
+				8332BE281D75D003003D728B /* AppDelegate.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		83AD16091D7E4781006C8BAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				834330641D787962001B30DA /* QcMessageCell.h */,
+				834330651D787962001B30DA /* QcMessageCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83AD160A1D7E478F006C8BAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8343305B1D7858C0001B30DA /* QcMessage.h */,
+				8343305C1D7858C0001B30DA /* QcMessage.m */,
+				8343305E1D785A05001B30DA /* QcMessageFrame.h */,
+				8343305F1D785A05001B30DA /* QcMessageFrame.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83AD160B1D7E4796006C8BAE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8332BE2A1D75D003003D728B /* ViewController.h */,
+				8332BE2B1D75D003003D728B /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83AD160D1D7EF4E1006C8BAE /* autoreply.plist in Resources */,
 				8332BE581D75D08A003D728B /* messages.plist in Resources */,
 				8332BE341D75D003003D728B /* LaunchScreen.storyboard in Resources */,
 				8332BE5A1D75D0DF003D728B /* Assets.xcassets in Resources */,

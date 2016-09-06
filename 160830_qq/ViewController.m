@@ -17,11 +17,19 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *inputView;
 
+@property (nonatomic,strong) NSDictionary *autoreply;
+
 @end
 
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //1. 表格设定
+    //去除分割线
+    self.tableView.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.allowsSelection = NO;
     // Do any additional setup after loading the view, typically from a nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
@@ -126,10 +134,33 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     //1.自己发了条信息
-    [self addMessage:textField.text type:1];
+    [self addMessage:textField.text type:QcMessageTypeMe];
+    
+    
+    //自动回复
+    NSString *reply= [self replayWithText:textField.text];
+    [self addMessage:reply type:QcMessageTypeOther];
+    
     self.inputView.text = nil;
     
     return YES;
+}
+
+- (NSString *)replayWithText:(NSString *)text {
+    for ( int i=0 ; i<text.length; i++) {
+        NSString *word = [text substringWithRange:NSMakeRange(i, 1)];
+        if (self.autoreply[word]) {
+            return self.autoreply[word];
+        }
+        
+    }
+    return @"aaaa";
+}
+- (NSDictionary *)autoreply {
+    if (_autoreply == nil) {
+        _autoreply = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"autoreply.plist" ofType:nil]];
+    }
+    return _autoreply;
 }
 
 @end
